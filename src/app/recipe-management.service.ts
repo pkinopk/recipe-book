@@ -115,7 +115,7 @@ export class RecipeManagementService {
       .request(
         new HttpRequest(
           'GET',
-          'https://recipe-book-mongodb-server.herokuapp.com/recipelist'
+          'https://pkinopk-server.herokuapp.com/recipe-book/recipelist'
         )
       )
       .toPromise()
@@ -135,7 +135,8 @@ export class RecipeManagementService {
       .request(
         new HttpRequest(
           'GET',
-          'https://recipe-book-mongodb-server.herokuapp.com/retrieverecipe/' + id
+          'https://pkinopk-server.herokuapp.com/recipe-book/retrieverecipe/' +
+            id
         )
       )
       .toPromise()
@@ -155,7 +156,10 @@ export class RecipeManagementService {
   addRecipe(recipe: Recipe) {
     console.log(recipe);
     this.http
-      .post('https://recipe-book-mongodb-server.herokuapp.com/addrecipe', recipe)
+      .post(
+        'https://pkinopk-server.herokuapp.com/recipe-book/addrecipe',
+        recipe
+      )
       .toPromise()
       .catch(reason => {
         console.log('recipe failed', reason);
@@ -170,7 +174,7 @@ export class RecipeManagementService {
     console.log(id);
     this.http
       .delete(
-        'https://recipe-book-mongodb-server.herokuapp.com/deleterecipe/' + id
+        'https://pkinopk-server.herokuapp.com/recipe-book/deleterecipe/' + id
       )
       .toPromise()
       .catch(reason => {
